@@ -1,0 +1,10 @@
+- Riot fiók helyett célszerű a felhasználóknak megadni a regisztráció lehetőséget is.
+	A feladat szempontjából, ez egyértelműen egyszerűbb, de a valóságban nem lenne feltétlenül hiteles. Rendben.
+- A lista nézetek esetén az egyszerűbb kezelés végett a "modify" és "delete" kerüljön a sor végére, hasonlóan a view-hoz.
+	Szerintem így egyszerűbb, mert módosítani csak a sajátját tudja mindenki, abból 1 darab lehet, és ki kéne keresni mindig.
+- A formok esetén az "edit" gomb elegendő ha egyszer jelenik meg, egyben kezejük a formokat, ne fieldenként.
+	Rendben.
+-És akkor ha jól értem, van a játékos (login) mint entitás, van a játékmód (admin kezelheti egyedül, CRUD), illetve a "jelentkezés" entitás.
+	játékos - vannak adatai, tudja azokat módosítani magának
+	játékmód - csak az admin tudja módosítani
+	jelentkezés - ez így konkrétan kimaradt a feladatból (a kapcsolatfelvételt majd megoldják máshogy, mondjuk játékon belül vagy dc-n), de bele lehet tenni.

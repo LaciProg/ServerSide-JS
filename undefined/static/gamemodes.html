@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game modes</title>
+    <style>
+        .flex-container {
+            display: flex;
+            background-color: white;
+            justify-content: space-between;
+
+        }
+
+        .flex-container > div {
+            background-color: #F1F1F1;
+            margin: 10px;
+            padding: 20px;
+            font-size: 30px;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+    </style>
+</head>
+<body>
+<h1 align="center">Game modes</h1>
+<table>
+    <tr>
+        <th>Game mode</th>
+        <th>Players looking for partners</th>
+        <th>View</th>
+    </tr>
+    <tr>
+        <td>Blind pick</td>
+        <td>10</td>
+        <td><div class="btn-group">
+            <button>View</button>
+        </div>
+        </td>
+    </tr>
+    <tr>
+        <td>Draft pick</td>
+        <td>200</td>
+        <td><div class="btn-group" id="draft">
+            <button>View</button>
+        </div>
+        </td>
+    </tr>
+    <tr>
+    <td>Ranked solo/dou</td>
+    <td>1000</td>
+    <td><div class="btn-group">
+        <button>View</button>
+    </div>
+    </td>
+    <tr>
+        <td>Ranked flex</td>
+        <td>300</td>
+        <td><div class="btn-group">
+            <button>View</button>
+        </div>
+        </td>
+    </tr>
+    <tr>
+        <td>Teamfight tactics</td>
+        <td>150</td>
+        <td><div class="btn-group">
+            <button>View</button>
+        </div>
+        </td>
+    </tr>
+</table>
+
+</body>
+<script>
+    const buttons = document.querySelectorAll(".btn-group")
+    buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+            window.location.href = "/gamemodes/party"
+
+        })
+    })
+</script>
+</html>

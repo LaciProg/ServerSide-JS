@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<style>
+    .flex-container {
+        display: flex;
+        background-color: white;
+        justify-content: space-between;
+
+    }
+
+    .flex-container > div {
+        background-color: #FFFFFF;
+        margin: 10px;
+        padding: 20px;
+        font-size: 30px;
+    }
+
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+
+</style>
+<body>
+<div class="flex-container">
+    <div>
+        <label>Profile</label>
+    </div>
+    <div>
+        <label for="name">Lacihun17</label>
+    </div>
+    <div>
+        <input type="submit" value="Log out">
+    </div>
+</div>
+
+<table>
+    <tr>
+        <th>Type</th>
+        <th>Data</th>
+    </tr>
+    <tr>
+        <td>Solo/duo rank</td>
+        <td>Silver 3 1 Lp</td>
+    </tr>
+    <tr>
+        <td>Ranked flex rank</td>
+        <td>Unranked</td>
+    </tr>
+    <tr>
+        <td>Highest rank</td>
+        <td>Gold 4 / flex</td>
+    <tr>
+        <td>Role 1</td>
+        <td>ADC</td>
+    </tr>
+    <tr>
+        <td>Role 2</td>
+        <td>top</td>
+    </tr>
+    <tr>
+        <td>Favourite champions</td>
+        <td>Kai'sa, Samira</td>
+    </tr>
+    <tr>
+        <td>Contact me</td>
+        <td>dc: laci_hun</td>
+    </tr>
+    <tr>
+        <td>About me</td>
+        <td><textarea id="info" name="info" rows="10" cols="100">
+                Here is something about me :D
+            </textarea>
+        </td>
+    </tr>
+</table>
+<br>
+<input type="submit" value="Edit">
+
+</body>
+</html>

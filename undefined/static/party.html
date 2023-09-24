@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+
+    .flex-container {
+        display: flex;
+        background-color: white;
+        justify-content: space-between;
+
+    }
+
+    .flex-container > div {
+        background-color: #FFFFFF;
+        margin: 10px;
+        padding: 20px;
+        font-size: 30px;
+    }
+
+    .btn-group button {
+        background-color: #808080; /* Green background */
+        border: 1px solid darkgray; /* Green border */
+        color: white; /* White text */
+        padding: 10px 24px; /* Some padding */
+        cursor: pointer; /* Pointer/hand icon */
+        float: left; /* Float the buttons side by side */
+    }
+
+
+    /* Add a background color on hover */
+    .btn-group button:hover {
+        background-color: darkgray;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Party</title>
+</head>
+<body>
+<div class="flex-container">
+<h1>Players</h1>
+<h1>Ranked solo/duo</h1>
+<div class="btn-group">
+    <button>New</button>
+    <button>Modify</button>
+    <button>Delete</button>
+    </div>
+    <div class="btn-group-profile">
+        <button>Profile</button>
+    </div>
+</div>
+
+<br><br>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Solo/duo</th>
+        <th>Flex</th>
+        <th>Role1</th>
+        <th>Role2</th>
+        <th>More</th>
+    </tr>
+    <tr>
+        <td>Minta Béla</td>
+        <td>Iron 4 0 Lp</td>
+        <td>Gold 4 0 LP</td>
+        <td>top</td>
+        <td>mid</td>
+        <td><div class="btn-group-profile">
+                <button>View</button>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>Gipsz Jakab</td>
+        <td>Challenger 1000 Lp</td>
+        <td>Unranked</td>
+        <td>jungle</td>
+        <td>mid</td>
+        <td><div class="btn-group-profile">
+            <button>View</button>
+        </div>
+        </td>
+    </tr>
+</table>
+
+</body>
+<script>
+    const buttons = document.querySelectorAll(".btn-group-profile")
+    buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+            window.location.href = "/profile"
+
+        })
+    })
+</script>
+</html>
