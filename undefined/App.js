@@ -25,5 +25,3 @@ app.get("/gamemodes/party", (req, res, next) =>{
 app.get("/profile", (req, res, next) =>{
     res.sendFile(pathJoin("profile.html"))
 })
-
-
