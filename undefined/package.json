@@ -3,5 +3,6 @@
     "express": "^4.18.2"
   },
   "name": "lol-jatekostars-kereso",
-  "description": "naon jo feladat :D"
+  "description": "naon jo feladat :D",
+  "main": "App.js"
 }
