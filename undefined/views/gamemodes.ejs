@@ -1,0 +1,24 @@
+<%- include('header', {pagetitle: 'Gamemodes'}) -%>
+<h1 align="center">Game modes</h1>
+<table>
+    <tr>
+        <th>Game mode</th>
+        <th>Players looking for partners</th>
+        <th>View</th>
+    </tr>
+    <% gamemodes.forEach(function(gamemode){ %>
+        <tr>
+            <td>
+                <%= gamemode.gm %>
+            </td>
+            <td>
+                <%= gamemode.active %>
+            </td>
+            <td><div class="btn-group">
+                    <a href="/gamemodes/<%= gamemode._id %>/party" class="btn btn-info">View</a>
+            </div>
+            </td>
+        </tr>
+    <% }); %>
+</table>
+<%- include('footer') -%>

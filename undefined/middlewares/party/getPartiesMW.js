@@ -9,6 +9,25 @@ module.exports = function (objectrepository, viewName) {
 
     return function (req, res, next) {
 
+        res.locals.parties = [
+            {
+                _id: "1",
+                Name: "Minta Béla",
+                Solo_duo: "Iron 4 0 Lp",
+                Flex: "Gold 4 0 LP",
+                Role1: "top",
+                Role2: "mid",
+            },
+            {
+                _id: "2",
+                Name: "Gipsz Jakab",
+                Solo_duo: "hallenger 1000 Lp",
+                Flex: "Unranked",
+                Role1: "jungle",
+                Role2: "mid",
+            }
+
+        ];
         /**
          * Something like:
          *  taskModel.find({},function(err,results){

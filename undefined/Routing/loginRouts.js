@@ -2,6 +2,7 @@ var renderMW = require('../middlewares/auth_render/renderMW');
 var getUserByEmailMW = require('../middlewares/auth_render/getUserByEmailMW');
 var checkUserLoginMW = require('../middlewares/auth_render/checkUserLoginMW');
 var sendPassMW = require('../middlewares/auth_render/sendPassMW');
+var regUserMW = require('../middlewares/auth_render/regUserMW');
 
 module.exports = function (app) {
 
@@ -9,14 +10,6 @@ module.exports = function (app) {
 //        userModel: userModel
     };
 
-    /**
-     * Login page
-     */
-    app.use('/',
-        getUserByEmailMW(objectRepository),
-        checkUserLoginMW(objectRepository),
-        renderMW(objectRepository, 'login')
-    );
 
     /**
      * Forgetten password page
@@ -33,6 +26,15 @@ module.exports = function (app) {
     app.use('/reg',
         regUserMW(objectRepository),
         renderMW(objectRepository, 'register')
+    );
+
+    /**
+     * Login page
+     */
+    app.use('/',
+        getUserByEmailMW(objectRepository),
+        checkUserLoginMW(objectRepository),
+        renderMW(objectRepository, 'login')
     );
 }
 

@@ -1,0 +1,12 @@
+<%- include('header', {pagetitle: 'Login'}) -%>
+<h4>
+   Sign in with your Riot account!
+</h4>
+<form method="post">
+    <label for="uname">Username:</label>
+    <input type="text" id="uname" name="uname" value=""><br><br>
+    <label for="pass">Password</label>
+    <input type="password" class="form-control" id="pass" name="password"><br><br>
+    <a href="/gamemodes" class="btn btn-info">Login</a>
+</form>
+<%- include('footer') -%>

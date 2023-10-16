@@ -10,6 +10,22 @@ module.exports = function (objectrepository, viewName) {
 
     return function (req, res, next) {
 
+        res.locals.profile =
+            {
+                _id: "1",
+                Name: "Lacihun17",
+                Solo_duo: "Silver 3 1 Lp",
+                Flex: "Unranked",
+                Role1: "ADC",
+                Role2: "top",
+                Highest_rank: "Gold 4 / flex",
+                Favourite_champion: "Kai'sa, Samira",
+                Contact: "dc: laci_hun",
+                About_me: "Here is something about me :D"
+            }
+
+
+
         /**
          * Something like:
          *  commentModel.findOne({ id: req.param('commentid')},function(err,result){

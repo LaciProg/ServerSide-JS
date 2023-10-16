@@ -1,0 +1,49 @@
+<%- include('header', {pagetitle: 'Party'}) -%>
+<div class="flex-container">
+<h1>Players</h1>
+<h1>Ranked solo/duo</h1>
+<div class="btn-group">
+    <a href="/gamemodes/:gamemodeid/party/new" class="btn btn-info">New</a>
+    <a href="/gamemodes/:gamemodeid/party/edit/:partyid" class="btn btn-info">Modify</a>
+    <a href="/gamemodes/:gamemodeid/party/del/:partyid" class="btn btn-info">Delete</a>
+</div>
+    <div class="btn-group-profile">
+        <a href="/profile/:profileid" class="btn btn-info">Profile</a>
+    </div>
+</div>
+
+<br><br>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Solo/duo</th>
+        <th>Flex</th>
+        <th>Role1</th>
+        <th>Role2</th>
+        <th>More</th>
+    </tr>
+    <% parties.forEach(function(party){ %>
+    <tr>
+        <td>
+            <%= party.Name %>
+        </td>
+        <td>
+            <%= party.Solo_duo %>
+        </td>
+        <td>
+            <%= party.Flex %>
+        </td>
+        <td>
+            <%= party.Role1 %>
+        </td>
+        <td>
+            <%= party.Role2 %>
+        </td>
+        <td>
+            <a href="/profile/<%= party._id %>" class="btn btn-info">View</a>
+        </td>
+    </tr>
+    <% }); %>
+</table>
+<%- include('footer') -%>

@@ -3,7 +3,7 @@
  */
 module.exports = function (objectrepository, viewName) {
     return function (req, res) {
-        res.end('render: ' + viewName);
-        //res.render(viewName, res.local);
+        //res.end('render: ' + viewName);
+        res.render(viewName, res.locals);
     }
 }

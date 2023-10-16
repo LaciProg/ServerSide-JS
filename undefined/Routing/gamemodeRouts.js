@@ -13,23 +13,6 @@ module.exports = function (app) {
 //            gamemodeModel: gamemodeModel
         };
 
-        /**
-        * List all gamemodes
-        */
-        app.get('/gamemodes',
-            authMW(objectRepository),
-            getGamemodesMW(objectRepository),
-            renderMW(objectRepository, 'gamemodes')
-        );
-
-        /**
-        * Create a new gamemode
-        */
-        app.use('/gamemodes/new',
-            authMW(objectRepository),
-            saveGamemodeMW(objectRepository),
-            renderMW(objectRepository, 'gamemodeedit')
-        );
 
         /**
         * Edit a gamemode
@@ -49,5 +32,24 @@ module.exports = function (app) {
             getGamemodeMW(objectRepository),
             delGamemodeMW(objectRepository)
         );
+
+        /**
+         * Create a new gamemode
+         */
+        app.use('/gamemodes/new',
+            authMW(objectRepository),
+            saveGamemodeMW(objectRepository),
+            renderMW(objectRepository, 'gamemodeedit')
+        );
+
+        /**
+         * List all gamemodes
+         */
+        app.get('/gamemodes',
+            authMW(objectRepository),
+            getGamemodesMW(objectRepository),
+            renderMW(objectRepository, 'gamemodes')
+        );
+
 
 }

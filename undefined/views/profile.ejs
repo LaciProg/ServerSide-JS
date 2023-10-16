@@ -1,0 +1,56 @@
+<%- include('header', {pagetitle: 'Profile'}) -%>
+<div class="flex-container">
+    <div>
+        <label>Profile</label>
+    </div>
+    <div>
+        <label for="name"><%= profile.Name %></label>
+    </div>
+    <div>
+        <input type="submit" value="Log out">
+    </div>
+</div>
+
+<table>
+    <tr>
+        <th>Type</th>
+        <th>Data</th>
+    </tr>
+    <tr>
+        <td>Solo/duo rank</td>
+        <td><%= profile.Solo_duo %></td>
+    </tr>
+    <tr>
+        <td>Ranked flex rank</td>
+        <td><%= profile.Flex %></td>
+    </tr>
+    <tr>
+        <td>Highest rank</td>
+        <td><%= profile.Highest_rank %></td>
+    <tr>
+        <td>Role 1</td>
+        <td><%= profile.Role1 %></td>
+    </tr>
+    <tr>
+        <td>Role 2</td>
+        <td><%= profile.Role2 %><td>
+    </tr>
+    <tr>
+        <td>Favourite champions</td>
+        <td><%= profile.Favourite_champion %></td>
+    </tr>
+    <tr>
+        <td>Contact me</td>
+        <td><%= profile.Contact %></td>
+    </tr>
+    <tr>
+        <td>About me</td>
+        <td><textarea id="info" name="info" rows="10" cols="100">
+                <%= profile.About_me %>
+            </textarea>
+        </td>
+    </tr>
+</table>
+<br>
+<input type="submit" value="Edit">
+<%- include('footer') -%>
