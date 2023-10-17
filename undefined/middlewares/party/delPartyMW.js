@@ -8,6 +8,7 @@ module.exports = function (objectrepository) {
 
     return function (req, res, next) {
 
+        res.redirect('/gamemodes/' + req.params.gamemodeid + '/party');
         /**
          * Something like:
          *  if (typeof res.tpl.comment === 'undefined')

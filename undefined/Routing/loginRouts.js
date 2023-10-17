@@ -17,15 +17,22 @@ module.exports = function (app) {
     app.use('/sendpass',
         getUserByEmailMW(objectRepository),
         sendPassMW(objectRepository),
-        renderMW(objectRepository, 'sendpass')
+        renderMW(objectRepository, 'login')
     );
 
     /**
      * Register page
      */
-    app.use('/reg',
-        regUserMW(objectRepository),
+    app.get('/reg',
+        //regUserMW(objectRepository),
         renderMW(objectRepository, 'register')
+    );
+    /**
+     * Register page
+     */
+    app.post('/reg',
+        regUserMW(objectRepository),
+        //renderMW(objectRepository, 'register')
     );
 
     /**

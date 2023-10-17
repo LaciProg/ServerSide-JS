@@ -10,6 +10,10 @@ module.exports = function (objectrepository, viewName) {
 
     return function (req, res, next) {
 
+        res.locals.party ={
+            _id: "1"
+        }
+
         /**
          * Something like:
          *  commentModel.findOne({ id: req.param('commentid')},function(err,result){

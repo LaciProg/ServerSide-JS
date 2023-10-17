@@ -1,7 +1,7 @@
 <%- include('header', {pagetitle: 'Party'}) -%>
 <div class="flex-container">
 <h1>Players</h1>
-<h1>Ranked solo/duo</h1>
+<h1><%= gamemode.gm%></h1>
 <div class="btn-group">
     <a href="/gamemodes/:gamemodeid/party/new" class="btn btn-info">New</a>
     <a href="/gamemodes/:gamemodeid/party/edit/:partyid" class="btn btn-info">Modify</a>

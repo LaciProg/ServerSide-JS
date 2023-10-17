@@ -11,6 +11,13 @@ module.exports = function (objectrepository, viewName) {
 
         return function (req, res, next) {
 
+            res.locals.gamemode =
+                {
+                    _id: "2",
+                    gm: "Draft pick",
+                    active: "200"
+                }
+
             /**
              * Something like:
              *  commentModel.findOne({ id: req.param('commentid')},function(err,result){

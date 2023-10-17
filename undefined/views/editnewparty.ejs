@@ -1,0 +1,41 @@
+<%- include('header', {pagetitle: 'Party'}) -%>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2>Party
+                <% if (typeof party === 'undefined') { %>
+                    Create
+                <% }else{ %>
+                    Change
+                <% } %>
+            </h2>
+            <form method="POST">
+                <div class="form-group">
+                    <label for="nev">Name</label>
+                    <label for="nav_value"><%=profile.Name%></label>
+                </div>
+                <div class="form-group">
+                    <label for="solo">Solo/duo</label>
+                    <label for="solo_value"><%=profile.Solo_duo%></label>
+                </div>
+                <div class="form-group">
+                    <label for="flex">Solo/duo</label>
+                    <label for="flex_value"><%=profile.Flex%></label>
+                </div>
+                <div class="form-group">
+                    <label for="Role1">Role 1</label>
+                    <input type="text" class="form-control" id="role1" name="role1"
+                           value="<%= profile.Role1 %>">
+                </div>
+                <div class="form-group">
+                    <label for="Role2">Role 2</label>
+                    <input type="text" class="form-control" id="role2" name="role2"
+                           value="<%= profile.Role2 %>">
+                </div>
+                <input type="submit" class="btn btn-primary" value="Save"/>
+                <a class="btn btn-link" href="/gamemodes/:gamemodeid/party">Back</a>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include('footer') -%>

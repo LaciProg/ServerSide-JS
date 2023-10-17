@@ -4,6 +4,8 @@ var getPartiesMW = require('../middlewares/party/getPartiesMW');
 var savePartyMW = require('../middlewares/party/savePartyMW');
 var delPartyMW = require('../middlewares/party/delPartyMW');
 var renderMW = require('../middlewares/auth_render/renderMW');
+var getProfileMW = require('../middlewares/profile/getProfileMW');
+var getGameModeMW = require('../middlewares/gamemode/getGamemodeMW');
 
 //var partyModel = require('../models/party');
 
@@ -19,9 +21,10 @@ module.exports = function (app) {
         */
         app.use('/gamemodes/:gamemodeid/party/edit/:partyid',
             authMW(objectRepository),
+            getProfileMW(objectRepository),
             getPartyMW(objectRepository),
             savePartyMW(objectRepository),
-            renderMW(objectRepository, 'partyedit')
+            renderMW(objectRepository, 'editnewparty')
         );
 
         /**
@@ -29,6 +32,7 @@ module.exports = function (app) {
         */
         app.get('/gamemodes/:gamemodeid/party/del/:partyid',
             authMW(objectRepository),
+            getProfileMW(objectRepository),
             getPartyMW(objectRepository),
             delPartyMW(objectRepository)
         );
@@ -38,8 +42,9 @@ module.exports = function (app) {
      */
     app.use('/gamemodes/:gamemodeid/party/new',
         authMW(objectRepository),
+        getProfileMW(objectRepository),
         savePartyMW(objectRepository),
-        renderMW(objectRepository, 'partyedit')
+        renderMW(objectRepository, 'editnewparty')
     );
 
         /**
@@ -47,6 +52,7 @@ module.exports = function (app) {
          */
         app.get('/gamemodes/:gamemodeid/party',
             authMW(objectRepository),
+            getGameModeMW(objectRepository),
             getPartiesMW(objectRepository),
             renderMW(objectRepository, 'party')
         );
