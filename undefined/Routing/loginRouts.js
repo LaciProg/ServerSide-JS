@@ -3,10 +3,13 @@ const getUserByEmailMW = require('../middlewares/auth_render/getUserByEmailMW');
 const checkUserLoginMW = require('../middlewares/auth_render/checkUserLoginMW');
 const sendPassMW = require('../middlewares/auth_render/sendPassMW');
 const regUserMW = require('../middlewares/auth_render/regUserMW');
+const saveProfileMW = require('../middlewares/profile/saveProfileMW');
 
 const gamemodeModel = require("../models/gamemode");
 const partyModel = require("../models/party");
 const profileModel = require("../models/profile");
+const authMW = require("../middlewares/auth_render/authMW");
+const getProfileMW = require("../middlewares/profile/getProfileMW");
 
 
 module.exports = function (app) {
@@ -26,11 +29,16 @@ module.exports = function (app) {
         renderMW(objectRepository, 'login')
     );
 
+    app.use('/reg/:profileid/edit',
+        authMW(objectRepository),
+        getProfileMW(objectRepository),
+        renderMW(objectRepository, 'editnewprofile')
+    );
+
     /**
      * Register page
      */
     app.get('/reg',
-        //regUserMW(objectRepository),
         renderMW(objectRepository, 'register')
     );
     /**
@@ -38,16 +46,19 @@ module.exports = function (app) {
      */
     app.post('/reg',
         regUserMW(objectRepository),
-        //renderMW(objectRepository, 'register')
+        saveProfileMW(objectRepository),
+        renderMW(objectRepository, 'editnewprofile')
     );
 
     /**
      * Login page
      */
-    app.use('/',
+    app.get('/',
+        renderMW(objectRepository, 'login')
+    );
+    app.post('/',
         getUserByEmailMW(objectRepository),
         checkUserLoginMW(objectRepository),
-        renderMW(objectRepository, 'login')
     );
 }
 

@@ -13,7 +13,6 @@ module.exports = function (objectrepository) {
             return next();
         }
 
-
         res.locals.gamemode.active -= 1;
         await res.locals.gamemode.save().then(gamemode =>{
             console.log(gamemode);

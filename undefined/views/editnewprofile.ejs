@@ -1,0 +1,58 @@
+<%- include('header', {pagetitle: 'Party'}) -%>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2>Party edit</h2>
+            <form method="POST">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input class="form-control" id="name" name="name" value="<%= profile.Name %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input class="form-control" id="email" name="email" value="<%= profile.Email %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input class="form-control" id="password" name="password" value="<%= profile.Password %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="solo">Solo/duo:</label>
+                    <input class="form-control" id="solo" name="solo" value="<%= profile.Solo_duo %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="flex">Ranked flex:</label>
+                    <input class="form-control" id="flex" name="flex" value="<%= profile.Flex %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="high">Highest rank:</label>
+                    <input class="form-control" id="high" name="high" value="<%= profile.Highest_rank %>">
+                </div>
+                <div class="form-group">
+                    <label for="Role1">Role 1:</label>
+                    <input type="text" class="form-control" id="Role1" name="Role1" value="<%= profile.Role1 %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="Role2">Role 2:</label>
+                    <input type="text" class="form-control" id="Role2" name="Role2" value="<%= profile.Role2 %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="champ">Favourite champions:</label>
+                    <input type="text" class="form-control" id="champ" name="champ" value="<%= profile.Favourite_champion %>">
+                </div>
+                <div class="form-group">
+                    <label for="contact">Contact me:</label>
+                    <input type="text" class="form-control" id="contact" name="contact" value="<%= profile.Contact %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="info">About me:</label>
+                    <textarea id="info" name="info" class="form-control" rows="10" cols="100">
+                        <%= profile.About_me %>
+                    </textarea>
+                </div>
+                <input type="submit" class="btn btn-primary" value="Save"/>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include('footer') -%>

@@ -27,7 +27,7 @@ profile.save().then(() => {console.log("profile saved");
 express = require("express")
 bodyParser = require('body-parser')
 const app = express()
-const path = require("path")
+//const path = require("path")
 
 app.set("view engine", "ejs")
 
@@ -40,7 +40,7 @@ require('./Routing/gamemodeRouts')(app)
 require('./Routing/profileRouts')(app)
 require('./Routing/loginRouts')(app)
 
-const pathJoin = (dir)  =>  {return path.join(__dirname, /views/+dir)}
+//const pathJoin = (dir)  =>  {return path.join(__dirname, /views/+dir)}
 app.use((err, req, res, next) =>{
     res.status(500).send("Error")
     console.log(err)

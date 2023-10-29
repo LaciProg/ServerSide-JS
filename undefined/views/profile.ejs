@@ -7,7 +7,7 @@
         <label for="name"><%= profile.Name %></label>
     </div>
     <div>
-        <input type="submit" value="Log out">
+        <input type="submit" class="btn btn-primary" value="Log out">
     </div>
 </div>
 
@@ -27,13 +27,14 @@
     <tr>
         <td>Highest rank</td>
         <td><%= profile.Highest_rank %></td>
+    </tr>
     <tr>
         <td>Role 1</td>
         <td><%= profile.Role1 %></td>
     </tr>
     <tr>
         <td>Role 2</td>
-        <td><%= profile.Role2 %><td>
+        <td><%= profile.Role2 %></td>
     </tr>
     <tr>
         <td>Favourite champions</td>
@@ -45,12 +46,13 @@
     </tr>
     <tr>
         <td>About me</td>
-        <td><textarea id="info" name="info" rows="10" cols="100">
+        <td>
+            <textarea id="info" name="info" class="form-control" rows="10" cols="100" readonly>
                 <%= profile.About_me %>
             </textarea>
         </td>
     </tr>
 </table>
 <br>
-<input type="submit" value="Edit">
+<input type="submit" class="btn btn-primary" value="Edit">
 <%- include('footer') -%>

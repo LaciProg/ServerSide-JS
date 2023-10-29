@@ -16,6 +16,13 @@ module.exports = function (app) {
                 partyModel: partyModel,
                 profileModel: profileModel
         };
+
+        app.use('/profile/:profileid/edit',
+            authMW(objectRepository),
+            getProfileMW(objectRepository),
+            renderMW(objectRepository, 'editnewprofile')
+        );
+
         /**
         * Profile page
         */
