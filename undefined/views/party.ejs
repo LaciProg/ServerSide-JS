@@ -3,12 +3,17 @@
 <h1>Players</h1>
 <h1><%= gamemode.gm%></h1>
 <div class="btn-group">
-    <a href="/gamemodes/:gamemodeid/party/new" class="btn btn-info">New</a>
-    <a href="/gamemodes/:gamemodeid/party/edit/:partyid" class="btn btn-info">Modify</a>
-    <a href="/gamemodes/:gamemodeid/party/del/:partyid" class="btn btn-info">Delete</a>
+    <a href="/gamemodes/<%= gamemode._id%>/party/new" class="btn btn-info">New</a>
+    <% parties.forEach(function(party){ %>
+        <% if (gamemode._id.toString() === party._Gamemode.toString() && profile._id.toString() === party._Profile.toString()) { %>
+            <a href="/gamemodes/<%= gamemode._id%>/party/edit/<%= party._id%>" class="btn btn-info">Modify</a>
+            <a href="/gamemodes/<%= gamemode._id%>/party/del/<%= party._id%>" class="btn btn-info">Delete</a>
+        <% } %>
+    <% }); %>
+
 </div>
     <div class="btn-group-profile">
-        <a href="/profile/:profileid" class="btn btn-info">Profile</a>
+        <a href="/profile/<%= profile._id %>" class="btn btn-info">Profile</a>
     </div>
 </div>
 
@@ -41,7 +46,7 @@
             <%= party.Role2 %>
         </td>
         <td>
-            <a href="/profile/<%= party._id %>" class="btn btn-info">View</a>
+            <a href="/profile/<%= profile._id %>" class="btn btn-info">View</a>
         </td>
     </tr>
     <% }); %>

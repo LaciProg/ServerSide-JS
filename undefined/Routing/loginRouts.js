@@ -1,15 +1,21 @@
-var renderMW = require('../middlewares/auth_render/renderMW');
-var getUserByEmailMW = require('../middlewares/auth_render/getUserByEmailMW');
-var checkUserLoginMW = require('../middlewares/auth_render/checkUserLoginMW');
-var sendPassMW = require('../middlewares/auth_render/sendPassMW');
-var regUserMW = require('../middlewares/auth_render/regUserMW');
+const renderMW = require('../middlewares/auth_render/renderMW');
+const getUserByEmailMW = require('../middlewares/auth_render/getUserByEmailMW');
+const checkUserLoginMW = require('../middlewares/auth_render/checkUserLoginMW');
+const sendPassMW = require('../middlewares/auth_render/sendPassMW');
+const regUserMW = require('../middlewares/auth_render/regUserMW');
+
+const gamemodeModel = require("../models/gamemode");
+const partyModel = require("../models/party");
+const profileModel = require("../models/profile");
+
 
 module.exports = function (app) {
 
-    var objectRepository = {
-//        userModel: userModel
+    const objectRepository = {
+        gamemodeModel: gamemodeModel,
+        partyModel: partyModel,
+        profileModel: profileModel
     };
-
 
     /**
      * Forgetten password page

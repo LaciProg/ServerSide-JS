@@ -1,16 +1,21 @@
-var authMW = require('../middlewares/auth_render/authMW');
-var renderMW = require('../middlewares/auth_render/renderMW');
-var getProfileMW = require('../middlewares/profile/getProfileMW');
-var saveProfileMW = require('../middlewares/profile/saveProfileMW');
+const authMW = require('../middlewares/auth_render/authMW');
+const renderMW = require('../middlewares/auth_render/renderMW');
+const getProfileMW = require('../middlewares/profile/getProfileMW');
+const saveProfileMW = require('../middlewares/profile/saveProfileMW');
 
-//var userModel = require('../models/user');
+const gamemodeModel = require("../models/gamemode");
+const partyModel = require("../models/party");
+const profileModel = require("../models/profile");
+
+
 
 module.exports = function (app) {
 
-        var objectRepository = {
-//            userModel: userModel
+        const objectRepository = {
+                gamemodeModel: gamemodeModel,
+                partyModel: partyModel,
+                profileModel: profileModel
         };
-
         /**
         * Profile page
         */

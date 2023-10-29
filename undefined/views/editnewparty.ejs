@@ -11,29 +11,37 @@
             </h2>
             <form method="POST">
                 <div class="form-group">
-                    <label for="nev">Name</label>
+                    <label for="nev">Name:</label>
                     <label for="nav_value"><%=profile.Name%></label>
                 </div>
                 <div class="form-group">
-                    <label for="solo">Solo/duo</label>
+                    <label for="solo">Solo/duo:</label>
                     <label for="solo_value"><%=profile.Solo_duo%></label>
                 </div>
                 <div class="form-group">
-                    <label for="flex">Solo/duo</label>
+                    <label for="flex">Ranked flex:</label>
                     <label for="flex_value"><%=profile.Flex%></label>
                 </div>
                 <div class="form-group">
-                    <label for="Role1">Role 1</label>
-                    <input type="text" class="form-control" id="role1" name="role1"
+                    <label for="Role1">Role 1:</label>
+                    <input type="text" class="form-control" id="Role1" name="Role1"
+                    <% if (typeof party === 'undefined') { %>
                            value="<%= profile.Role1 %>">
+                    <% }else{ %>
+                            value="<%= party.Role1 %>">
+                    <% } %>
                 </div>
                 <div class="form-group">
-                    <label for="Role2">Role 2</label>
-                    <input type="text" class="form-control" id="role2" name="role2"
+                    <label for="Role2">Role 2:</label>
+                    <input type="text" class="form-control" id="Role2" name="Role2"
+                    <% if (typeof party === 'undefined') { %>
                            value="<%= profile.Role2 %>">
+                    <% }else{ %>
+                            value="<%= party.Role2 %>">
+                    <% } %>
                 </div>
                 <input type="submit" class="btn btn-primary" value="Save"/>
-                <a class="btn btn-link" href="/gamemodes/:gamemodeid/party">Back</a>
+                <a class="btn btn-link" href="/gamemodes/<%= gamemode._id %>/party">Back</a>
             </form>
         </div>
     </div>
