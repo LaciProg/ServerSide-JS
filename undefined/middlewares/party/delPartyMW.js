@@ -15,10 +15,10 @@ module.exports = function (objectrepository) {
 
         res.locals.gamemode.active -= 1;
         await res.locals.gamemode.save().then(gamemode =>{
-            console.log(gamemode);
+            //console.log(gamemode);
         }).then(party =>{
             partyModel.deleteOne({_id: res.locals.party._id}).then(party =>{
-                console.log("party removed");
+                //console.log("party removed");
                 res.redirect('/gamemodes/' + req.params.gamemodeid + '/party');
             });
         }).catch(err =>{

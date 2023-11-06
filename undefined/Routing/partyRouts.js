@@ -6,6 +6,7 @@ const delPartyMW = require('../middlewares/party/delPartyMW');
 const renderMW = require('../middlewares/auth_render/renderMW');
 const getProfileMW = require('../middlewares/profile/getProfileMW');
 const getGameModeMW = require('../middlewares/gamemode/getGamemodeMW');
+const hasPartyMW = require('../middlewares/party/hasPartyMW');
 
 const gamemodeModel = require("../models/gamemode");
 const partyModel = require("../models/party");
@@ -63,6 +64,7 @@ module.exports = function (app) {
             getGameModeMW(objectRepository),
             getProfileMW(objectRepository),
             getPartiesMW(objectRepository),
+            hasPartyMW(objectRepository),
             renderMW(objectRepository, 'party')
         );
 }

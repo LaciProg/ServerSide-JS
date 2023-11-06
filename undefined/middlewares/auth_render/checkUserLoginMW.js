@@ -19,9 +19,13 @@ module.exports = function (objectrepository) {
         }
 
         if(req.body.password.toString() === res.locals.profile.Password.toString()) {
-            res.redirect('/gamemodes');
+            req.session.loggedIn = true;
+            req.session.email = req.body.email;
+            req.session.profileID = res.locals.profile._id;
+            return req.session.save(err => res.redirect('/gamemodes'));
         }
         else {
+            res.locals.error = 'Hibás jelszó!';
             res.redirect('/');
         }
 

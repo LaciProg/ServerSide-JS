@@ -9,15 +9,29 @@ module.exports = function (objectrepository, viewName) {
     const profileModel = requireOption(objectrepository, 'profileModel');
 
     return async function (req, res, next) {
-        //await profileModel.findById(req.params.profileid).then(profile => {
-        //TODO now only for testing 1 user
-        await profileModel.find().then(profile => {
-            if (profile === null) {
+        await profileModel.find().then(profiles => {
+            if (profiles === null) {
                 throw new Error('No profile found');
             }
-            res.locals.profile = profile[0];
-            console.log(profile);
-            return next();
+            res.locals.profileID = req.session.profileID;
+            for (let i = 0; i < profiles.length; i++) {
+                if (req.params.profileid !== undefined) {
+                    if (profiles[i]._id.toString() === req.params.profileid) {
+                        res.locals.profile = profiles[i];
+                        return next();
+                    }
+
+                }
+                else {
+                    if (profiles[i].Email === req.session.email.toString()) {
+                        res.locals.profile = profiles[i];
+
+                        return next();
+                    }
+                }
+
+            }
+            throw new Error('No profile found');
         }).catch(err => {
             return next(err);
         });

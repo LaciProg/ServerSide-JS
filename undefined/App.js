@@ -27,7 +27,7 @@ profile.save().then(() => {console.log("profile saved");
 express = require("express")
 bodyParser = require('body-parser')
 const app = express()
-//const path = require("path")
+const session = require('express-session');
 
 app.set("view engine", "ejs")
 
@@ -35,33 +35,19 @@ app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 app.use('/assets',express.static("static"))
 
+app.use(
+    session({
+        secret: 'secret'
+    })
+);
+
 require('./Routing/partyRouts')(app)
 require('./Routing/gamemodeRouts')(app)
 require('./Routing/profileRouts')(app)
 require('./Routing/loginRouts')(app)
 
-//const pathJoin = (dir)  =>  {return path.join(__dirname, /views/+dir)}
 app.use((err, req, res, next) =>{
     res.status(500).send("Error")
     console.log(err)
 });
 app.listen(3000)
-
-
-/*
-app.get("/gamemodes/party", (req, res, next) =>{
-    res.sendFile(pathJoin("party.ejs"))
-})
-app.get("/gamemodes", (req, res, next) =>{
-    res.sendFile(pathJoin("gamemodes.ejs"))
-})
-
-app.get("/profile", (req, res, next) =>{
-    res.sendFile(pathJoin("profile.ejs"))
-})
-app.post('/', (req, res, next) => {
-    res.redirect("/gamemodes")
-})
-app.get('/', (req, res, next) =>{
-    res.sendFile(pathJoin("login.ejs"))
-})*/

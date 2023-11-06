@@ -7,7 +7,7 @@
         <label for="name"><%= profile.Name %></label>
     </div>
     <div>
-        <input type="submit" class="btn btn-primary" value="Log out">
+        <a href="/logout" class="btn btn-info" >Log out</a>
     </div>
 </div>
 
@@ -54,5 +54,7 @@
     </tr>
 </table>
 <br>
-<input type="submit" class="btn btn-primary" value="Edit">
+<% if (profileID === profile._id.toString()) { %>
+    <a href="/profile/<%= profileID%>/edit" type="submit" class="btn btn-info">Edit profile</a>
+<% } %>
 <%- include('footer') -%>

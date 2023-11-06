@@ -13,8 +13,8 @@ module.exports = function (objectrepository, viewName) {
         await gamemodeModel.findById(req.params.gamemodeid).then(gamemode =>{
             if (gamemode === null) {throw new Error('No gamemode found');}
             res.locals.gamemode = gamemode;
-            console.log("getGamemodeMW");
-            console.log(gamemode);
+            /*console.log("getGamemodeMW");
+            console.log(gamemode);*/
             return next();
         }).catch(err =>{
             return next(err);

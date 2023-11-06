@@ -9,14 +9,14 @@ module.exports = function (objectrepository, viewName) {
 
     return async function (req, res, next) {
         await partyModel.find().then(parties =>{
-            var neededParties = [];
-            for (var i = 0; i < parties.length; i++) {
-                if (parties[i]._Gamemode == req.params.gamemodeid) {
+            let neededParties = [];
+            for (let i = 0; i < parties.length; i++) {
+                if (parties[i]._Gamemode.toString() === req.params.gamemodeid.toString()) {
                     neededParties.push(parties[i]);
                 }
             }
             res.locals.parties = neededParties;
-            console.log(neededParties);
+            //console.log(neededParties);
             return next();
         }).catch(err=>{
             return next(err);

@@ -4,6 +4,7 @@ const checkUserLoginMW = require('../middlewares/auth_render/checkUserLoginMW');
 const sendPassMW = require('../middlewares/auth_render/sendPassMW');
 const regUserMW = require('../middlewares/auth_render/regUserMW');
 const saveProfileMW = require('../middlewares/profile/saveProfileMW');
+const logoutMW = require('../middlewares/auth_render/logoutMW');
 
 const gamemodeModel = require("../models/gamemode");
 const partyModel = require("../models/party");
@@ -49,6 +50,13 @@ module.exports = function (app) {
         saveProfileMW(objectRepository),
         renderMW(objectRepository, 'editnewprofile')
     );
+
+    app.get('/logout',
+        authMW(objectRepository),
+        logoutMW(objectRepository),
+        renderMW(objectRepository, 'login')
+    );
+
 
     /**
      * Login page

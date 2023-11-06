@@ -26,7 +26,7 @@
                 </div>
                 <div class="form-group">
                     <label for="high">Highest rank:</label>
-                    <input class="form-control" id="high" name="high" value="<%= profile.Highest_rank %>">
+                    <input class="form-control" id="high" name="high" value="<%= profile.Highest_rank %>" required>
                 </div>
                 <div class="form-group">
                     <label for="Role1">Role 1:</label>
@@ -38,7 +38,7 @@
                 </div>
                 <div class="form-group">
                     <label for="champ">Favourite champions:</label>
-                    <input type="text" class="form-control" id="champ" name="champ" value="<%= profile.Favourite_champion %>">
+                    <input type="text" class="form-control" id="champ" name="champ" value="<%= profile.Favourite_champion %>" required>
                 </div>
                 <div class="form-group">
                     <label for="contact">Contact me:</label>
@@ -46,7 +46,7 @@
                 </div>
                 <div class="form-group">
                     <label for="info">About me:</label>
-                    <textarea id="info" name="info" class="form-control" rows="10" cols="100">
+                    <textarea id="info" name="info" class="form-control" rows="10" cols="100" required>
                         <%= profile.About_me %>
                     </textarea>
                 </div>

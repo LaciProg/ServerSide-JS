@@ -21,6 +21,9 @@ module.exports = function (objectrepository, viewName) {
             typeof req.body.Role1 === 'undefined' ||
             typeof req.body.Role2 === 'undefined' ||
             typeof req.body.contact === 'undefined' ||
+            typeof req.body.champ === 'undefined' ||
+            typeof req.body.info === 'undefined' ||
+            typeof req.body.high === 'undefined' ||
             req.body.name === '' ||
             req.body.password === '' ||
             req.body.email === '' ||
@@ -28,25 +31,26 @@ module.exports = function (objectrepository, viewName) {
             req.body.flex === '' ||
             req.body.Role1 === '' ||
             req.body.Role2 === '' ||
-            req.body.contact === ''){
+            req.body.contact === '' ||
+            req.body.champ === '' ||
+            req.body.info === '' ||
+            req.body.high === ''){
             return next();
         }
 
         res.locals.profile.Name = req.body.name;
         res.locals.profile.Password = req.body.password;
         res.locals.profile.Email = req.body.email;
-        res.locals.profile.Solo = req.body.solo;
+        res.locals.profile.Solo_duo = req.body.solo;
         res.locals.profile.Flex = req.body.flex;
         res.locals.profile.Role1 = req.body.Role1;
         res.locals.profile.Role2 = req.body.Role2;
         res.locals.profile.Contact = req.body.contact;
         res.locals.profile.Favourite_champion = req.body.champ;
         res.locals.profile.About_me = req.body.info;
-        res.locals.Highest_rank = req.body.high;
+        res.locals.profile.Highest_rank = req.body.high;
 
         res.locals.profile.save().then(result => {
-            console.log('Profile saved');
-            console.log(result);
             res.redirect('/profile/'+res.locals.profile._id);
         }).catch(err => {
             return next(err);

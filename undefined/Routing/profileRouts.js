@@ -17,9 +17,13 @@ module.exports = function (app) {
                 profileModel: profileModel
         };
 
+        /**
+         * Edit a profile
+         */
         app.use('/profile/:profileid/edit',
             authMW(objectRepository),
             getProfileMW(objectRepository),
+            saveProfileMW(objectRepository),
             renderMW(objectRepository, 'editnewprofile')
         );
 
@@ -41,13 +45,11 @@ module.exports = function (app) {
             renderMW(objectRepository, 'profile')
         );
 
-        /**
-         * Edit a profile
-         */
+   /*
         app.use('/profile/edit/:profileid',
             authMW(objectRepository),
             getProfileMW(objectRepository),
             saveProfileMW(objectRepository),
             renderMW(objectRepository, 'profile')
-        );
+        );*/
 }
