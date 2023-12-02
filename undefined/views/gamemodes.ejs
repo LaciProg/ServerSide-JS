@@ -16,9 +16,18 @@
             </td>
             <td><div class="btn-group">
                     <a href="/gamemodes/<%= gamemode._id %>/party" class="btn btn-info">View</a>
+                    <% if(profile.Admin !== undefined &&  profile.Admin === 1){%>
+                        <a href="/gamemodes/<%= gamemode._id %>/edit" class="btn btn-primary">Edit</a>
+                        <a href="/gamemodes/<%= gamemode._id %>/del" class="btn btn-primary">Delete</a>
+                    <% } %>
             </div>
             </td>
         </tr>
     <% }); %>
 </table>
+<div>
+    <% if(profile.Admin !== undefined &&  profile.Admin === 1){%>
+        <a href="/gamemodes/new" class="btn btn-primary">Add new game mode</a>
+    <% } %>
+</div>
 <%- include('footer') -%>

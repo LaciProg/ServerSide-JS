@@ -1,0 +1,27 @@
+<%- include('header', {pagetitle: 'Party'}) -%>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2>Game Mode
+                <% if (typeof gamemode === 'undefined') { %>
+                    Create
+                <% }else{ %>
+                    Change
+                <% } %>
+            </h2>
+            <form method="POST">
+                <div class="form-group">
+                    <label for="nev">Name:</label>
+                    <% if (typeof gamemode !== 'undefined') { %>
+                        <input type="text" id="nev" name="nev" value="<%= gamemode.gm%>" required>
+                    <% }else{ %>
+                    <input type="text" id="nev" name="nev" placeholder="New game mode" required>
+                    <% } %>
+                </div>
+                <input type="submit" class="btn btn-primary" value="Save"/>
+                <a class="btn btn-link" href="/gamemodes">Back</a>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include('footer') -%>

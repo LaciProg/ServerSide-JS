@@ -1,5 +1,3 @@
-const requireOption = require('../common');
-
 /**
  * If the user is not logged in, redirects to /
  */

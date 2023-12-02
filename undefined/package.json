@@ -1,5 +1,10 @@
 {
+  "scripts": {
+    "test": "nyc mocha Test/middlewares/unit --recursive --exit"
+  },
   "dependencies": {
+    "body-parser": "^1.20.2",
+    "chai": "^4.3.10",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
@@ -8,5 +13,8 @@
   },
   "name": "lol-jatekostars-kereso",
   "description": "naon jo feladat :D",
-  "main": "App.js"
+  "main": "App.js",
+  "devDependencies": {
+    "nyc": "^15.1.0"
+  }
 }

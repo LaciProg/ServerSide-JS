@@ -22,17 +22,7 @@ module.exports = function (objectrepository) {
             newProfile.Name = req.body.name;
             newProfile.Password = req.body.password;
             res.locals.profile = newProfile;
+            res.locals.newUser = "newUser"
             return next();
-            //return res.redirect('/reg/:profileid/edit');
-            await profileModel.findOne({Email: req.body.email}).then(profile =>{
-                if (profile !== null) { res.redirect('/?=emailAlreadyExists');}
-                res.redirect('/emailAlreadyExists');
-            }).then(()=>{
-                newProfile.save();
-            }).then(()=>{
-                res.redirect('/profile/'+newProfile._id);
-            }).catch(err =>{
-                return next(err);
-            });
         };
 }

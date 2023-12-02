@@ -10,6 +10,10 @@ module.exports = function (objectrepository, viewName) {
     const gamemodeModel = requireOption(objectrepository, 'gamemodeModel');
 
     return async function (req, res, next) {
+        if(req.params.gamemodeid === undefined) {
+            res.locals.gamemode = undefined;
+            return next();
+        }
         await gamemodeModel.findById(req.params.gamemodeid).then(gamemode =>{
             if (gamemode === null) {throw new Error('No gamemode found');}
             res.locals.gamemode = gamemode;

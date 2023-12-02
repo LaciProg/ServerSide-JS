@@ -25,7 +25,7 @@ module.exports = function (app) {
      * Forgetten password page
      */
     app.use('/sendpass',
-        getUserByEmailMW(objectRepository),
+        //getUserByEmailMW(objectRepository),
         sendPassMW(objectRepository),
         renderMW(objectRepository, 'login')
     );

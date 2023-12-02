@@ -1,14 +1,10 @@
-const requireOption = require('../common').requireOption;
-
 /**
  * This middleware has one purpose, when the user visits the / main page,
  * should be redirected to
  *    - / when not signed in
  *    - /gamemodes when signed in
  */
-module.exports = function (objectrepository) {
-
-    const profileModel = requireOption(objectrepository, 'profileModel');
+module.exports = function () {
 
     return function (req, res, next) {
         if(typeof req.body.email === 'undefined' ||

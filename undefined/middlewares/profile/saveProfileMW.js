@@ -9,6 +9,12 @@ module.exports = function (objectrepository, viewName) {
 
     return async function (req, res, next) {
 
+        await profileModel.findOne({Email: req.body.email}).then(profile => {
+            if (profile !== null && res.locals.newUser !== undefined) {
+                res.redirect('/?=emailAlreadyExists');
+            }
+        })
+
         if (typeof res.locals.profile === 'undefined') {
             return next();
         }

@@ -15,7 +15,7 @@ module.exports = function (objectrepository) {
             res.redirect('/');
         }
         await profileModel.findOne({Email: req.body.email}).then(profile =>{
-            if (profile === null) {throw new Error('No profile found');}
+            if (profile === null) {res.redirect('/');}
             res.locals.profile = profile;
             console.log("getUserByEmailMW");
             console.log(profile);

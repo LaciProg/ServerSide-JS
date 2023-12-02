@@ -5,6 +5,7 @@ const saveGamemodeMW = require('../middlewares/gamemode/saveGamemodeMW');
 const delGamemodeMW = require('../middlewares/gamemode/delGamemodeMW');
 const renderMW = require('../middlewares/auth_render/renderMW');
 const getPofileMW = require('../middlewares/profile/getProfileMW');
+const getPartyMW = require('../middlewares/party/getPartyMW');
 
 const gamemodeModel = require('../models/gamemode');
 const partyModel = require('../models/party');
@@ -22,21 +23,22 @@ module.exports = function (app) {
         /**
         * Edit a gamemode
         */
-        app.use('/gamemodes/edit/:gamemodeid',
+        app.use('/gamemodes/:gamemodeid/edit',
             authMW(objectRepository),
             getPofileMW(objectRepository),
             getGamemodeMW(objectRepository),
             saveGamemodeMW(objectRepository),
-            renderMW(objectRepository, 'gamemodeedit')
+            renderMW(objectRepository, 'editnewgamemode')
         );
 
         /**
         * Delete a gamemode
         */
-        app.get('/gamemodes/del/:gamemodeid',
+        app.get('/gamemodes/:gamemodeid/del',
             authMW(objectRepository),
             getPofileMW(objectRepository),
             getGamemodeMW(objectRepository),
+            getPartyMW(objectRepository),
             delGamemodeMW(objectRepository)
         );
 
@@ -46,8 +48,9 @@ module.exports = function (app) {
         app.use('/gamemodes/new',
             authMW(objectRepository),
             getPofileMW(objectRepository),
+            getGamemodeMW(objectRepository),
             saveGamemodeMW(objectRepository),
-            renderMW(objectRepository, 'gamemodeedit')
+            renderMW(objectRepository, 'editnewgamemode')
         );
 
         /**
@@ -55,6 +58,7 @@ module.exports = function (app) {
          */
         app.get('/gamemodes',
             authMW(objectRepository),
+            getPofileMW(objectRepository),
             getGamemodesMW(objectRepository),
             renderMW(objectRepository, 'gamemodes')
         );

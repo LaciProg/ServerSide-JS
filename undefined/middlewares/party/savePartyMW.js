@@ -1,5 +1,4 @@
-const {raw} = require("express");
-var requireOption = require('../common').requireOption;
+const requireOption = require('../common').requireOption;
 /**
  * if there is no data, next, if there is data, it is saved,
  * if there is an error, change it to a variable and next,
@@ -15,7 +14,7 @@ module.exports = function (objectrepository, viewName) {
             return next();
         }
 
-        //TODO if the profile has a party cant make a new one
+        console.log(typeof res.locals.party === 'undefined');
         if(typeof res.locals.party === 'undefined'){
             res.locals.party = new partyModel();
             res.locals.party._Gamemode = req.params.gamemodeid;
@@ -35,13 +34,11 @@ module.exports = function (objectrepository, viewName) {
         res.locals.party.Role1 = req.body.Role1;
         res.locals.party.Role2 = req.body.Role2;
 
-        await res.locals.party.save().then(party =>{
+        await res.locals.party.save().then(() =>{
             res.redirect(`/gamemodes/${req.params.gamemodeid}/party`);
         }).catch(err =>{
             return next(err);
         });
-
-        return next();
     }
 
 }

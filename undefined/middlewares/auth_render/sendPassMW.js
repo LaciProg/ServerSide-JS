@@ -4,6 +4,6 @@
 module.exports = function (objectrepository) {
     return function (req, res, next) {
         console.log("asdasd");
-        return next();
+        res.redirect('/');
     };
 }
